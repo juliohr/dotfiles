@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 source ~/.bashrc
-source ~/.bash_profile
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -20,7 +19,7 @@ ZSH_THEME="sunrise"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -52,8 +51,10 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# Load RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
-export PATH="/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jfeijo/Downloads:/usr/local"
+export PATH="$PATH:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jfeijo/Downloads:/usr/local"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -71,5 +72,24 @@ export PATH="/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
+alias g='git'
+alias gbc='git branch | grep -e ^* | awk "{ print \$2 }" | pbcopy'
+alias pam='cd ~/workspace/GAP/pam'
+alias pamweb='cd ~/workspace/GAP/pam/PamWeb'
+alias gap='cd ~/workspace/GAP/'
+alias gr='grunt'
+alias graun='grunt autotest:unit:nodirective'
+alias grt='grunt test'
+alias grtu='grunt test:unit'
+alias grd='grunt dev'
+alias grb='grunt build'
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+pete_db() {
+	psql -h sflpamdbc001.gid.gap.com -U allocation gidallocd1
+}
+
+pete_db_perf(){
+	psql -h sflpamdbz001.gid.gap.com -U allocation_id1 gdallocc1
+}
