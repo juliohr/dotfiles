@@ -65,7 +65,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snipets'
+Plugin 'honza/vim-snippets'
 Plugin 'claco/jasmine.vim'
 
 

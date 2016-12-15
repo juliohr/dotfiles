@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-source ~/.bashrc
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -19,7 +18,6 @@ ZSH_THEME="sunrise"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -50,12 +48,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-# Load RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-export PATH="$PATH:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jfeijo/Downloads:/usr/local"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+#LOAD RVM CONFIGS
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -70,8 +65,7 @@ export PATH="$PATH:/usr/local/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/u
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+#Git aliases
 alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
 alias g='git'
 alias gbc='git branch | grep -e ^* | awk "{ print \$2 }" | pbcopy'
@@ -85,11 +79,17 @@ alias grtu='grunt test:unit'
 alias grd='grunt dev'
 alias grb='grunt build'
 
+#aliases
+alias nrb='npm run build'
+alias nrs='npm run start'
+alias birl='cd ~/workspace/juliohr/BIRL'
 
-pete_db() {
-	psql -h sflpamdbc001.gid.gap.com -U allocation gidallocd1
-}
-
-pete_db_perf(){
-	psql -h sflpamdbz001.gid.gap.com -U allocation_id1 gdallocc1
-}
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+   
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
