@@ -69,21 +69,6 @@ source $ZSH/oh-my-zsh.sh
 alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
 alias g='git'
 alias gbc='git branch | grep -e ^* | awk "{ print \$2 }" | pbcopy'
-alias pam='cd ~/workspace/GAP/pam'
-alias pamweb='cd ~/workspace/GAP/pam/PamWeb'
-alias gap='cd ~/workspace/GAP/'
-alias gr='grunt'
-alias graun='grunt autotest:unit:nodirective'
-alias grt='grunt test'
-alias grtu='grunt test:unit'
-alias grd='grunt dev'
-alias grb='grunt build'
-
-#aliases
-alias nrb='npm run build'
-alias nrs='npm run start'
-alias birl='cd ~/workspace/juliohr/BIRL'
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
    
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -93,3 +78,18 @@ export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+#npm alias
+alias ns='npm start'
+
+###Ambush settings
+#screen sharing
+function pair() {
+ COMPUTER_IP=$(dscacheutil -q host -a name $1.local | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
+  open vnc://$COMPUTER_IP
+}
+
+alias rwifi="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
+alias cgweb='cd ~/workspace/Ambush/CG_Camper/cg-camper-web'
+
+### end of Ambush settings

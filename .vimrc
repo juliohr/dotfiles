@@ -1,9 +1,7 @@
-set nocompatible              
-filetype off                 
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Set leader
-let mapleader = ','
-
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -71,9 +69,7 @@ Plugin 'claco/jasmine.vim'
 
 call vundle#end()            
 call pathogen#infect()
+syntax on
 filetype plugin indent on   
-syntax enable
-set background=dark
-colorscheme solarized
 set nu
 let NERDTreeDirArrows=0
