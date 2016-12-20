@@ -1,0 +1,59 @@
+[user]
+	name = Julio-Home
+	email = julio.ss@gmail.com
+
+[color]
+  ui = auto
+
+[alias]
+  st = status -sb
+  co = checkout
+
+  diff = diff --color
+
+  prb = pull -r
+  prbm = pull --rebase origin master
+
+  ap = add -pa
+
+  l = log --graph --abbrev-commit --date=relative
+  ll = log --graph --abbrev-commit --date=relative --name-status
+  lp = log --graph --abbrev-commit --date=relative -p
+
+  boom = clean -fd
+
+  r = reset HEAD
+  rh = reset HEAD~1
+
+  dc = diff --cached
+  d = diff
+  dsf = "!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy | less --tabs=4 -RFX; }; f"
+  dns = diff --ignore-space-change
+
+  pb = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
+  mff = "!f() { git merge "$1" --no-ff --no-edit; }; f"
+  cs = "!f() { EDITOR=vim git commit --author=\""${1}" <$(git config user.email)>\" -e -m \"$(cat ~/.git_commit_msg.txt | sed 's/DDD/\\[#'$2'\\]/g')\"; }; f"
+
+[push]
+  default = simple
+
+[format]
+  pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+[merge]
+      tool = diffmerge
+[mergetool "diffmerge"]
+      cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+          trustExitCode = true
+[mergetool]
+      keepBackup = false
+[diff]
+      tool = diffmerge
+[difftool "diffmerge"]
+      cmd = diffmerge $LOCAL $REMOTE
+
+[core]
+      excludesfile = ~/.gitignore_global
+	    editor = /usr/bin/vim
+[commit]
+      template = /Users/julio2/.git_commit_msg.txt
+
