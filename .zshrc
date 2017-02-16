@@ -69,15 +69,9 @@ source $ZSH/oh-my-zsh.sh
 alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
 alias g='git'
 alias gbc='git branch | grep -e ^* | awk "{ print \$2 }" | pbcopy'
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
    
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
 
 #npm alias
 alias ns='npm start'
