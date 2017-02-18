@@ -65,6 +65,9 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# rbenv
+eval "$(rbenv init -)"
+
 #Git aliases
 alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
 alias g='git'
