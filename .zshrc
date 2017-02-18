@@ -79,6 +79,11 @@ export PATH="/usr/local/sbin:$PATH"
 #npm alias
 alias ns='npm start'
 
+#rails alias
+alias rs='rails s'
+alias rt='bundle exec rspec spec/'
+alias rdb='rails db:migrate'
+
 ###Ambush settings
 #screen sharing
 function pair() {
@@ -90,3 +95,6 @@ alias rwifi="networksetup -setairportpower en0 off && networksetup -setairportpo
 alias cgweb='cd ~/workspace/Ambush/CG_Camper/cg-camper-web'
 
 ### end of Ambush settings
+
+#home aliases
+alias apply='cd ~/workspace/juliohr/companies_applications'
