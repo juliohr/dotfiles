@@ -68,6 +68,11 @@ source $ZSH/oh-my-zsh.sh
 # rbenv
 eval "$(rbenv init -)"
 
+#fix for alt + arrow jump word on bash
+
+bindkey "[C" forward-word
+bindkey "[D" backward-word
+
 #Git aliases
 alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
 alias g='git'
