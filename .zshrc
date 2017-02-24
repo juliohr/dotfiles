@@ -77,7 +77,7 @@ bindkey "[D" backward-word
 alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
 alias g='git'
 alias gbc='git branch | grep -e ^* | awk "{ print \$2 }" | pbcopy'
-alias gpfl ='git push --force-with-lease'
+alias gpfl='git push --force-with-lease'
    
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
