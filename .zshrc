@@ -86,9 +86,11 @@ export PATH="/usr/local/sbin:$PATH"
 alias ns='npm start'
 
 #rails alias
-alias rs='rails s'
+alias be='bundle exec'
+alias ber='bundle exec rails'
+alias rs='bundle exec rails s'
 alias rt='bundle exec rspec spec/'
-alias rdb='rails db:migrate'
+alias rdb='bundle exec rails db:migrate'
 
 ###Ambush settings
 #screen sharing
