@@ -83,7 +83,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 #npm alias
-alias ns='npm start'
+alias ns='clear && npm start'
 
 #rails alias
 alias be='bundle exec'
