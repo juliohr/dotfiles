@@ -106,3 +106,6 @@ alias cgweb='cd ~/workspace/Ambush/CG_Camper/cg-camper-web'
 
 #home aliases
 alias apply='cd ~/workspace/juliohr/companies_applications'
+
+#add gits ssh key
+ssh-add -K ~/.ssh/id_rsa
