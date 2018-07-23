@@ -92,7 +92,6 @@ alias rs='bundle exec rails s'
 alias rt='bundle exec rspec spec/'
 alias rdb='bundle exec rails db:migrate'
 
-###Ambush settings
 #screen sharing
 function pair() {
  COMPUTER_IP=$(dscacheutil -q host -a name $1.local | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
@@ -100,12 +99,7 @@ function pair() {
 }
 
 alias rwifi="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
-alias cgweb='cd ~/workspace/Ambush/CG_Camper/cg-camper-web'
 
 ### end of Ambush settings
 
-#home aliases
-alias apply='cd ~/workspace/juliohr/companies_applications'
 
-#add gits ssh key
-ssh-add -K ~/.ssh/id_rsa
