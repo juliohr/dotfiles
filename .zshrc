@@ -99,4 +99,5 @@ alias rwifi="networksetup -setairportpower en0 off && networksetup -setairportpo
 
 ### end of Ambush settings
 
-
+#mongdb 3.4 setting
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
