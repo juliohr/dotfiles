@@ -65,9 +65,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# rbenv
-eval "$(rbenv init -)"
-
 #fix for alt + arrow jump word on bash
 
 bindkey "[C" forward-word
