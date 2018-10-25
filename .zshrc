@@ -87,6 +87,7 @@ alias be='bundle exec'
 alias ber='bundle exec rails'
 alias rs='bundle exec rails s'
 alias rt='bundle exec rspec spec/'
+alias cart='bin/rspec'
 alias rdb='bundle exec rails db:migrate'
 
 #screen sharing
@@ -109,7 +110,8 @@ export PATH="$PATH:/Users/julio.feijo/.asdf/shims/elm-format"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-#Culture Amp aliases
+#CA aliases
 
 alias murmur='cd ~/workspace/CultureAmp/murmur'
 alias influx='cd ~/workspace/CultureAmp/influx'
+alias cafe='bin/webpack-dev-server --host=0.0.0.0 --port=9876 --disable-host-check --progress'
