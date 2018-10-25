@@ -115,3 +115,7 @@ export PATH="$PATH:/Users/julio.feijo/.asdf/shims/elm-format"
 alias murmur='cd ~/workspace/CultureAmp/murmur'
 alias influx='cd ~/workspace/CultureAmp/influx'
 alias cafe='bin/webpack-dev-server --host=0.0.0.0 --port=9876 --disable-host-check --progress'
+alias caee='script/employees_event_reader'
+alias cabgjob='bin/rake jobs:rake'
+alias is='be foreman start'
+alias iw='USE_LOCAL_RUNNER=true script/work'
