@@ -101,3 +101,15 @@ alias rwifi="networksetup -setairportpower en0 off && networksetup -setairportpo
 
 #mongdb 3.4 setting
 export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+
+#elm format settings
+export PATH="$PATH:/Users/julio.feijo/.asdf/shims/elm-format"
+
+#asdf installation guide steps
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+#Culture Amp aliases
+
+alias murmur='cd ~/workspace/CultureAmp/murmur'
+alias influx='cd ~/workspace/CultureAmp/influx'
