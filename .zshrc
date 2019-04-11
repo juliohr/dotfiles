@@ -111,6 +111,11 @@ export PATH="$PATH:/Users/julio.feijo/.asdf/shims/elm-format"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+#ruby alias
+
+alias rubomod='git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs bundle exec rubocop -a'
+alias rubocommit='git diff-tree -r --no-commit-id --name-only @\{u\} head | xargs bundle exec rubocop -a'
+
 #CA aliases
 
 alias murmur='cd ~/workspace/CultureAmp/murmur'
