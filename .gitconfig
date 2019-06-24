@@ -53,7 +53,7 @@
 
 [core]
       excludesfile = ~/.gitignore_global
-	editor = subl -w
+	editor = /usr/bin/vim
 [commit]
       template = /Users/julio2/.git_commit_msg.txt
 	verbose = true
