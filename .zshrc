@@ -125,3 +125,8 @@ alias caee='script/employees_event_reader'
 alias cabgjob='bin/rake jobs:work'
 alias is='be foreman start'
 alias iw='USE_LOCAL_RUNNER=true script/work'
+
+# installed by cultureamp/big-frontend-repo
+bfr() {
+  ${HOME}/workspace/CultureAmp/big-frontend-repo/tools/cli/run.sh $@
+}
