@@ -84,12 +84,12 @@ alias ns='clear && npm start'
 
 #rails alias
 alias be='bundle exec'
-alias ber='bundle exec rails'
-alias rs='bundle exec rails s'
-alias rc='bundle exec rails c' 
-alias rt='bundle exec rspec spec/'
+alias br='bin/rails'
+alias rs='bin/rails s'
+alias rc='bin/rails c' 
+alias rt='bin/rspec spec/'
 alias cart='bin/rspec'
-alias rdb='bundle exec rails db:migrate'
+alias rdb='bin/rails db:migrate'
 
 #screen sharing
 function pair() {
@@ -101,8 +101,8 @@ alias rwifi="networksetup -setairportpower en0 off && networksetup -setairportpo
 
 ### end of Ambush settings
 
-#mongdb 3.4 setting
-export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+#mongdb 3.6 setting
+export PATH="/usr/local/opt/mongodb-community@3.6/bin:$PATH"
 
 #elm format settings
 export PATH="$PATH:/Users/julio.feijo/.asdf/shims/elm-format"
