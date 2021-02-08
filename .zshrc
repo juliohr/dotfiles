@@ -75,12 +75,25 @@ alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
 alias g='git'
 alias gbc='git branch | grep -e ^* | awk "{ print \$2 }" | pbcopy'
 alias gpfl='git push --force-with-lease'
-   
+alias gbs='search_branch'
+alias gcmb='git prune origin && git branch --merged | egrep -v "master" | xargs git branch -d'
+alias gclb='git branch --merged | \
+  grep -v "master" > \
+  /tmp/merged-branches && \
+  vi /tmp/merged-branches && \
+  xargs git branch -d < /tmp/merged-branches'
+function search_branch() {
+  git branch -l | grep "$1"
+}
+
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 #npm alias
 alias ns='clear && npm start'
+
+#ruby alias
+alias srb='bundle exec standardrb --fix'
 
 #rails alias
 alias be='bundle exec'
@@ -97,10 +110,6 @@ function pair() {
   open vnc://$COMPUTER_IP
 }
 
-alias rwifi="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
-
-### end of Ambush settings
-
 #mongdb 3.6 setting
 export PATH="/usr/local/opt/mongodb-community@3.6/bin:$PATH"
 
@@ -109,7 +118,12 @@ export PATH="$PATH:/Users/julio.feijo/.asdf/shims/elm-format"
 
 #asdf installation guide steps
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit
 
 #ruby alias
 
@@ -118,13 +132,7 @@ alias rubocommit='git diff-tree -r --no-commit-id --name-only @\{u\} head | xarg
 
 #CA aliases
 
-alias murmur='cd ~/workspace/CultureAmp/murmur'
-alias influx='cd ~/workspace/CultureAmp/influx'
-alias cafe='bin/webpack-dev-server --host=0.0.0.0 --port=9876 --disable-host-check --progress'
-alias caee='script/employees_event_reader'
-alias cabgjob='bin/rake jobs:work'
-alias is='be foreman start'
-alias iw='USE_LOCAL_RUNNER=true script/work'
+alias ca='cd ~/workspace/CultureAmp'
 
 # installed by cultureamp/big-frontend-repo
 bfr() {
