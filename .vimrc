@@ -42,29 +42,10 @@ nmap <Leader>s :source $MYVIMRC<CR>
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
  nmap <Leader>v :e $MYVIMRC<CR>
 
-"only for pamweb
-function! EditFileIfExists(file)
-  if filereadable(a:file)
-    :execute 'edit' a:file
-  else
-    :echom "File does not exists: " . a:file
-  endif
-endfunction
-
-nmap <Leader>t :call EditFileIfExists(substitute(substitute(@%, 'app\/js', 'test\/unit', 'g'), '\.js', '-spec.js', 'g'))<CR>
-nmap <Leader>w :call EditFileIfExists(substitute(substitute(@%, 'test\/unit', 'app\/js', 'g'), '-spec\.js', '.js', 'g'))<CR>
-
 "Vundle Plugins
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
-
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'claco/jasmine.vim'
 
 
 call vundle#end()            
