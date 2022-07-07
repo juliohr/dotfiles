@@ -55,7 +55,6 @@
       excludesfile = ~/.gitignore_global
 	editor = /usr/bin/vim
 [commit]
-      template = ~/.git_commit_msg.txt
 	verbose = true
 
 [rerere]
