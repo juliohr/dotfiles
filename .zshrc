@@ -147,8 +147,5 @@ function pair() {
   open vnc://$COMPUTER_IP
 }
 
-# InDebted auto-generated
-source ~/.aws.zsh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
