@@ -116,10 +116,12 @@ alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
 alias g='git'
 alias gbc='git branch | grep -e ^* | awk "{ print \$2 }" | pbcopy'
 alias gpfl='git push --force-with-lease'
+alias gprm='git pull --rebase origin main'
+alias grc='git rebase --continue'
 alias gbs='search_branch'
-alias gcmb='git prune origin && git branch --merged | egrep -v "master" | xargs git branch -d'
+alias gcmb='git prune origin && git branch --merged | egrep -v "main" | xargs git branch -d'
 alias gclb='git branch --merged | \
-  grep -v "master" > \
+  grep -v "main" > \
   /tmp/merged-branches && \
   vi /tmp/merged-branches && \
   xargs git branch -d < /tmp/merged-branches'
@@ -141,11 +143,15 @@ alias rc='bin/rails c'
 alias rt='bin/rspec spec/'
 alias rdb='bin/rails db:migrate'
 
-#screen sharing
-function pair() {
- COMPUTER_IP=$(dscacheutil -q host -a name $1.local | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
-  open vnc://$COMPUTER_IP
-}
+#polyrepo alias
+alias pdn='polyrepo dep-normalize'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
