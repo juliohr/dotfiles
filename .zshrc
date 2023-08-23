@@ -146,6 +146,11 @@ alias rdb='bin/rails db:migrate'
 #polyrepo alias
 alias pdn='polyrepo dep-normalize'
 
+#gradle alias
+alias bgfk='bin/gradle formatKotlin'
+alias bgb='bin/gradle build'
+alias bgc='bin/gradle check'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
