@@ -12,7 +12,11 @@
   diff = diff --color
 
   prb = pull -r
-  prbm = pull --rebase origin main
+
+  prbm = "!f() { \
+        branch=${1:-main}; \
+        git pull --rebase --autostash origin $branch; \
+    }; f"
 
   ap = add -pa
 
