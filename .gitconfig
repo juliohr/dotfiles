@@ -12,7 +12,7 @@
   diff = diff --color
 
   prb = pull -r
-  prbm = pull --rebase origin master
+  prbm = pull --rebase origin main
 
   ap = add -pa
 
