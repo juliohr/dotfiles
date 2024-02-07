@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Check if aspell is installed
+if ! command -v aspell &>/dev/null; then
+    echo "Warning: aspell not found. Spell checking skipped."
+    exit 0
+fi
+
+# Extract the last commit message, skipping auto-generated text
+COMMIT_MSG=$(git log -1 --pretty=%B | grep -v '^Merge ')
+
+# Check for spelling errors
+echo "$COMMIT_MSG" | aspell list | sort -u > /tmp/commit_spell_check_errors.txt
+
+if [ -s /tmp/commit_spell_check_errors.txt ]; then
+    echo "Possible spelling errors detected in the last commit message:"
+    cat /tmp/commit_spell_check_errors.txt
+else
+    echo "No spelling errors detected in the last commit message."
+fi
+
+# Cleanup
+rm /tmp/commit_spell_check_errors.txt
