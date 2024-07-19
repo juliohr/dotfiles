@@ -58,7 +58,6 @@
 [core]
       excludesfile = ~/.gitignore_global
 	editor = /usr/bin/vim
-	hooksPath = /Users/juliof/.git_hooks
 [commit]
 	verbose = true
 

@@ -119,7 +119,7 @@ alias gpfl='git push --force-with-lease'
 alias gprm='git pull --rebase origin main'
 alias grc='git rebase --continue'
 alias gbs='search_branch'
-alias gcmb='git prune origin && git branch --merged | egrep -v "main" | xargs git branch -d'
+alias gcmb='git remote prune origin && git branch --merged | egrep -v "main" | xargs git branch -d'
 alias gclb='git branch --merged | \
   grep -v "main" > \
   /tmp/merged-branches && \
@@ -128,6 +128,7 @@ alias gclb='git branch --merged | \
 function search_branch() {
   git branch -l | grep "$1"
 }
+alias gprw='gh pr view -w'
 
 #npm alias
 alias ns='clear && npm start'
