@@ -160,7 +160,3 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Path for brew installed cUrl
-export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
-source /opt/homebrew/opt/autoenv/activate.sh
