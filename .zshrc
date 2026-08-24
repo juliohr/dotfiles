@@ -5,115 +5,55 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# Initialise zsh's completion system (tab-completion). Oh My Zsh used to do
+# this for us; without it, tab-completion (e.g. git branch names) is off.
+autoload -Uz compinit && compinit
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Fix option arrow navigation
+bindkey '^[[2;3C' forward-word
+bindkey '^[[1;3D' backward-word
+# Homebrew config
+HOMEBREW_NO_ENV_HINTS=1
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# ASDF config
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+export GITLAB_USERNAME="julio.feijo"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Gradle setup
+GRADLE_USER_HOME=$HOME/.gradle
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# Tfbackend config
+typeset -U path PATH
+path=(~/.local/bin $path)
+export PATH
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#fix for alt + arrow jump word on bash
-bindkey "[C" forward-word
-bindkey "[D" backward-word
-
-#Git aliases
-alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/ \(.*\)/(\1)/'"
+# Git aliases
 alias g='git'
+alias gst='git status -sb'
+alias gco='git checkout'
+# Make the gco alias inherit `git checkout` completion, so typing a partial
+# branch name and pressing tab completes it (as Oh My Zsh's git plugin did).
+# Uses git's _git completion, telling it to complete gco as `git checkout`.
+compdef _git gco=git-checkout
+alias gcb='git checkout -b'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias ga='git add'
+alias gc='git commit -v'
+alias gpr='git pull --rebase'
+alias gp='git push'
+alias gpsup='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
+alias gc!='git commit --verbose --amend'
+alias gcmsg='git commit -m'
+alias gl='git log'
+alias gls='git log --oneline --decorate'
+alias glg="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
 alias gbc='git branch | grep -e ^* | awk "{ print \$2 }" | pbcopy'
 alias gpfl='git push --force-with-lease'
 alias gprm='git pull --rebase origin main'
@@ -130,33 +70,11 @@ function search_branch() {
 }
 alias gprw='gh pr view -w'
 
-#npm alias
-alias ns='clear && npm start'
-
-#ruby alias
-alias srb='bundle exec standardrb --fix'
-
-#rails alias
-alias be='bundle exec'
-alias br='bin/rails'
-alias rs='bin/rails s'
-alias rc='bin/rails c' 
-alias rt='bin/rspec spec/'
-alias rdb='bin/rails db:migrate'
-
-#polyrepo alias
-alias pdn='polyrepo dep-normalize'
-
-#gradle alias
-alias bgfk='bin/gradle formatKotlin'
+# Gradle alias
 alias bgb='bin/gradle build'
 alias bgc='bin/gradle check'
+alias gwb='./gradlew build'
+alias gwc='./gradlew check'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
